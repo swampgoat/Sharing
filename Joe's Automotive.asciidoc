@@ -1,0 +1,91 @@
++*In[24]:*+
+[source, ipython3]
+----
+#This code allows for the creation of 1 of three classes from the Joe's automotive exercise
+#I could not work out how to get the sales tax to be an attribute derived from the other attributes of testquote/10
+#So in my testquote example I contrived the numbers and added them manually.
+#Likewise I had a similar struggle with the total that is printed as part of the quote
+
+class Car:
+    def __init__(self, make, model, year):
+        self.make = make 
+        self.model = model 
+        self.year = year
+class Customer:
+    def __init__(self, tele, address, name):
+        self.tele = tele 
+        self.address = address 
+        self.name = name
+class Quote:
+    def __init__(self, parts, labour, salestax):
+        self.parts = parts 
+        self.labour = labour 
+        self.salestax = salestax
+    
+testcar = Car(make='Merc', model='e200', year='2011')
+print( "Car Make:", testcar.make, "   Car Model:", testcar.model, "    Car Year:", testcar.year)
+
+testcustomer = Customer(tele='0418642909', address='123 Plain st', name='Andy G')
+print("Customer's Name:", testcustomer.name, "    Customer's Telephone Number:", testcustomer.tele, "    Customer's Address:", testcustomer.address)
+
+testquote = Quote(parts='372', labour='873.50', salestax= ((372 + 873.50) / 10))
+print("Quote Number 1", "  Parts Charges Total:", testquote.parts, "  Labor Charges Total:", testquote.labour, "  Sales Tax Total:", testquote.salestax, "                    Quote Total (incl Sales Tax):", (372 + 873.50 + 124.55))
+
+#Below is my first attempt that was an ugly setter and getter type "solution"
+
+#class Car:
+#    def SetModel(self, model):
+        #self._Model=model
+    #def GetModel(self):
+      #  return self. _Model
+    #def SetMake(self, make):
+     #   self._Make=make
+    #def GetMake(self):
+     #   return self. _Make
+    #def SetYear(self, year):
+        #self._Year=year
+    #def GetYear(self):
+     #   return self. _Year
+
+#class Customer:
+ #   def SetName(self, name):
+  #      self._Name=name
+   # def GetName(self):
+    #    return self. _Name
+   # def SetAddress(self, address):
+    #    self._Address=address
+   # def GetAddress(self):
+    #    return self. _Address 
+    #def SetTelephoneNo(self, telephoneno):
+     #   self._Telephone=telephoneno
+   # def GetTelephoneNo(self):
+    #    return self. _TelephoneNo
+    
+    
+    
+    
+#def main():
+ #   testCar= Car()
+  #  testCar.SetModel("E200")
+   # testCar.SetMake("Mercedes-benz")
+    #testCar.SetYear("2011")
+    #print("Make {}, Model {}, Year {}".format(testCar.GetMake(), testCar.GetModel(), testCar.GetYear())
+    #print(testCar._Year())
+#if __name__ == '__main__':main()
+
+----
+
+
++*Out[24]:*+
+----
+Car Make: Merc    Car Model: e200     Car Year: 2011
+Customer's Name: Andy G     Customer's Telephone Number: 0418642909     Customer's Address: 123 Plain st
+Quote Number 1   Parts Charges Total: 372   Labor Charges Total: 873.50   Sales Tax Total: 124.55                     Quote Total (incl Sales Tax): 1370.05
+----
+
+
++*In[ ]:*+
+[source, ipython3]
+----
+
+----

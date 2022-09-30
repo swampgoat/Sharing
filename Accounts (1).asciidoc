@@ -1,0 +1,129 @@
++*In[8]:*+
+[source, ipython3]
+----
+# Account class
+
+class Account():
+    def __init__(self, name, balance, password):
+        self.name = name
+        self.balance = int(balance)
+        self.password = password 
+        
+##   def __init__(self, name, balance, password):
+   #     self.name = Savings1
+    #    self.balance = int(1000)
+     #   self.password = pass123 
+        
+
+    def deposit(self, amountToDeposit, password):
+        if password != self.password:
+            print('Sorry, incorrect password')
+            return None
+
+        if amountToDeposit < 0:
+            print('You cannot deposit a negative amount')
+            return None
+
+        self.balance = self.balance + amountToDeposit
+        return self.balance
+
+    def withdraw(self, amountToWithdraw, password):
+        if password != self.password:
+            print('Incorrect password for this account')
+            return None
+
+        if amountToWithdraw < 0:
+            print('You cannot withdraw a negative amount')
+            return None
+
+        if amountToWithdraw > self.balance:
+            print('You cannot withdraw more than you have in your account')
+            return None
+
+        self.balance = self.balance - amountToWithdraw
+        return self.balance
+
+    def getBalance(self, password):
+        if password != self.password:
+            print('Sorry, incorrect password')
+            return None
+        return self.balance
+
+    #def __str__:
+     #   print(f'       Name: {self.name}')
+     #   print(f'       Balance: {self.balance}')
+     #   print(f'       Password: {self.password}')
+       # print() 
+        
+----
+
+
++*In[ ]:*+
+[source, ipython3]
+----
+
+Savings1 = Account(name="Savings1", balance = 1000, password=1234)
+#print(Savings1.name)
+
+#def open(self): #Not clear an how to allow for a user generated account
+    
+
+while True:
+    print()
+    print('Press b to get the balance')
+    print('Press d to make a deposit')
+    print('Press o to open a new account')
+    print('Press w to make a withdrawal')
+    print('Press s to show all accounts')
+    print('Press q to quit')
+    print()
+
+    action = input('What do you want to do? ')
+    action = action.lower()  # case insensitive
+    action = action[0]  # grab the first letter
+    print()
+
+    if action == 'b':
+        Savings1.getBalance() 
+       
+
+    elif action == 'd':
+        Savings1.deposit() 
+
+    elif action == 'o':
+        pass #open.()
+
+    elif action == 's':
+        print("All Accounts:",  Savings1.name) 
+
+    elif action == 'q':
+        break
+
+    elif action == 'w':
+        Savings1.withdraw() 
+
+    else:
+        print('Sorry, that was not a valid action.  Please try again.')
+
+print('Done')
+----
+
+
++*Out[ ]:*+
+----
+
+Press b to get the balance
+Press d to make a deposit
+Press o to open a new account
+Press w to make a withdrawal
+Press s to show all accounts
+Press q to quit
+
+----
+
+
++*In[ ]:*+
+[source, ipython3]
+----
+
+----
